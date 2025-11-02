@@ -42,3 +42,10 @@ prompt = str(input("What is your name: ")).lower()
 if prompt == 'leib':
   print(f"Your name is {prompt} and my name is leib. we have the same name")
 
+# Excercise 9: Tall enough to ride a roller coaster
+prompt = int(input("What is your height in cm? "))
+if prompt > 145:
+  print(f"You are tall enough.")
+else:
+  print("You need to grow some more to ride.")
+  

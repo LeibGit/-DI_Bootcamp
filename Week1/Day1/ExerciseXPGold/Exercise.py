@@ -29,6 +29,27 @@ my_text = """Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 print(len(my_text))
 
 # Exercise 5
-prompt = input("Input the longest sentence you can without the letter A: ").lower()
 
-(prompt.split())
+def longest_input():
+  count = 0
+  array_of_sentences = ['o']
+  letter = 'a'
+
+  while count <= 5:
+    prompt = str(input("Input the longest sentence you can without the letter A: ").lower())
+
+
+    if letter in prompt:
+      print("Failed. Enter a sentance without the letter a.")
+      count += 1
+    else:
+      last_value = array_of_sentences[-1]
+      if len(prompt) < len(last_value):
+        print("Try again. this string is not longer than the last.")
+      elif len(prompt) == len(last_value):
+        print("Almost. Equal to your longest sentence.")
+      else:
+        print("Congrats, you have a new longest sentence.")
+        array_of_sentences.append(prompt)
+    count += 1
+longest_input()

@@ -1,0 +1,11 @@
+URL: https://github.com/LeibGit/-DI_Bootcamp/blob/main/Week1/Day1/DailyChallenge/exercise.py
+suggestions for improvement:
+- The 'Build the String Character by Character' part is not quite correct. The inner loop should print the elements of `arr` joined together, not each element individually on the same line. Consider using `''.join(arr)` inside the outer loop.
+- Consider using more descriptive variable names (e.g., `user_string` instead of `prompt`).
+- The shuffling part is correct but the print of `shuffle` after converting prompt to a list is unncessary.
+Brief justification:
+- correctness: The code correctly handles the input length validation and prints the first and last characters. It also attempts to build the string character by character and jumble it. However, the progressive string building is flawed, printing each character of the built string on the same line instead of the entire built string. The shuffling part is mostly correct but could be cleaned up by removing the unnecessary print statement. Therefore, the overall correctness is 80%.
+- readability: The code is mostly readable but could benefit from more descriptive variable names and comments. The logic is relatively straightforward to follow. Readability is scored at 70%.
+- performance: The performance is adequate for the given task. No significant performance bottlenecks are present. Performance is scored at 80%.
+- security: The code does not involve any external input or sensitive operations, so security is not a major concern here. It's scored at 100%.
+

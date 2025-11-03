@@ -1,0 +1,12 @@
+URL: https://github.com/LeibGit/-DI_Bootcamp/blob/main/Week1/Day2/DailyChallenge/exercise.py
+suggestions for improvement:
+- In Challenge 1, the expected output is a list. The provided code prints each element individually. Modify the code to create and print a list.
+- In Challenge 1, the loop iterates one too many times.  It should iterate 'length' times, not 'length + 1' times.
+- In Challenge 2, the logic to remove consecutive duplicates is not entirely correct. The code checks if a character is present in the last element of the 'res' list instead of comparing it directly to the last character added to the result string.
+- In Challenge 2, consider improving variable names for clarity (e.g., 'string' could be 'input_string', 'res' could be 'result_string').
+Brief justification:
+- correctness: Challenge 1 partially fulfills the requirement by asking for inputs and using a loop and multiplication. However, it fails to output a list as specified in the example outputs and iterates one too many times. Challenge 2 partially fulfills the requirement by asking for a string and attempting to remove duplicates, but the logic for duplicate removal is flawed and doesn't produce the correct output in all cases. Therefore, correctness is 60%.
+- readability: The code is reasonably readable due to the use of meaningful variable names and straightforward logic. However, adding comments and more descriptive variable names could further enhance readability. Therefore readability is 70%
+- performance: The performance is adequate for the given problem size. The loops used are efficient for the expected input. Thus, performance is 70%.
+- security: The code takes user input, but there are no apparent vulnerabilities such as SQL injection or buffer overflows, since the inputs are cast to `int` and `str`. Thus, security is 70%.
+

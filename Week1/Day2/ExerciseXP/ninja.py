@@ -19,8 +19,33 @@ max_num = max(list_of_ints)
 min_num = min(list_of_ints)
 print([min_num, max_num])
 
-new_list = []
-for n in list_of_ints:
-  if n > 50:
-    new_list.append(n)
-print(new_list)
+def greater_than():
+  new_list = []
+  for n in list_of_ints:
+    if n > 50:
+      new_list.append(n)
+  print(new_list)
+greater_than()
+
+def less_than():
+  new_list = []
+  for n in list_of_ints:
+    if n < 10:
+      new_list.append(n)
+  print(new_list)
+less_than()
+
+def squared_list():
+  squared = []
+  for n in list_of_ints:
+    val = n**2
+    squared.append(val)
+  print(squared)
+squared_list()
+
+unduped = list(set(list_of_ints))
+print(unduped)
+print(len(unduped))
+
+avg = sum(list_of_ints) / len(list_of_ints)
+print(avg)

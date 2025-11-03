@@ -43,3 +43,53 @@ for char in lowercase_alphabet:
     print("constant")
 
 # Exercise 6
+word_list = list(input("Enter 7 different words: "))
+letter = str(input("Enter in a character: "))
+
+for index, word in enumerate(word_list):
+  if letter in word:
+    print(index)
+  else:
+    print(f"{letter} was not in any of the word in your list.")
+
+
+# exercise 7
+list = list(range(1, 1000001))
+list_min = min(list)
+list_max = max(list)
+list_sum = sum(list)
+print(list_min)
+print(list_max)
+print(list_sum)
+
+
+# Exercise 8
+prompt = input("Enter a list of nums seperated by comma: ").split(',')
+list1 = list(prompt)
+tuple1 = tuple(prompt)
+print(list1)
+print(tuple1)
+
+
+
+# Exercise 9
+import random
+
+games_won = 0
+games_lost = 0
+
+while True:
+  prompt = input("Enter a number between 1 and 9 (press q to quit): ")
+  random_num = random.randint(1, 9)
+  print(random_num)
+
+  if prompt == random_num:
+    print("Winner")
+    games_won += 1
+  elif prompt == 'q':
+    break
+  else:
+    print("Better luck next time.")
+    games_lost += 1
+print(f"Games Won: {games_won}")
+print(f"Games Lost: {games_lost}")

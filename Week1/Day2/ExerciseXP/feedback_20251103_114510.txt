@@ -1,0 +1,13 @@
+URL: https://github.com/LeibGit/-DI_Bootcamp/blob/main/Week1/Day2/ExerciseXP/exercise.py
+suggestions for improvement:
+- In Exercise 2, you are trying to add an element to tuple which throws an error, but you should discuss the immutability of tuples. The error message will still be printed. Consider handling the exception, or commenting out the incorrect code, and adding a print statement that explains why the attempted operation is invalid.
+- In Exercise 4, the intention is to create a list like this: `[1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]`.  The code does not produce the correct output because the count starts at 1, not 1.5. Change the starting value of `count` to 1.5
+- In Exercise 7, the input `prompt` is a single string. the condition `check_fruit in prompt:` will check for a substring, not for an element in the list of fruits.
+- In Exercise 8, you can use f-strings within the loop to reduce variable calls. Also, printing the toppings one by one as they are added might improve the user experience.
+- In exercise 9, the loop for family members doesn't have a quit option.
+Brief justification:
+- correctness: The code addresses most of the exercises but contains errors in exercises 2, 4 and 7. Exercise 1 and 3, 5, 6, 8, 9 are correctly implemented, but can be improved.
+- readability: The code is reasonably readable with consistent naming and structure. Comments could be added to explain the purpose of each section.
+- performance: The code performs adequately for the given tasks. There aren't any major performance bottlenecks.
+- security: The code is generally secure but could benefit from input validation, especially in the numerical inputs, to prevent crashes due to invalid input types.
+

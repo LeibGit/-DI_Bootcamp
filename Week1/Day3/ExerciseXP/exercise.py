@@ -20,3 +20,73 @@ def total_cost():
             total_cost += 15
     print(f'${total_cost}')
 total_cost()
+
+# Exercise #3
+brand = {
+    "name": "zara", 
+    "creation_date": 1975,
+    "creator_name": "Amancio Ortega Gaona",
+    "type_of_clothes": [
+        "men", 
+        "women", 
+        "children", 
+        "home" 
+    ],
+    "international_competitors": [
+        "Gap",
+        "H&M", 
+        "Benetton",
+    ],
+    "number_stores": 7000, 
+    "major_color": {
+        "France": "blue", 
+        "Spain": "red", 
+        "US": "Pink" "green"
+    }
+}
+
+brand["number_stores"] = 2
+print(f"We service: {", ".join(brand['type_of_clothes'])}")
+brand["country_creation"] = 'Spain'
+
+if brand["international_competitors"]:
+    brand["international_competitors"].append('Desigual')
+
+print(brand)
+
+del brand["creation_date"]
+print(brand)
+
+print(brand["international_competitors"][0])
+
+print(brand['major_color']['US'])
+
+print(len(brand.keys()))
+print(brand.keys())
+
+more_on_zara = {
+    "creation_date": "11/4/2025", 
+    "number_stores": "10"
+}
+
+final_dict = {**brand, **more_on_zara}
+print(final_dict)
+
+# Exercise 4
+users = ["Mickey", "Minnie", "Donald", "Ariel", "Pluto"]
+character_dict = {}
+revised_dict = {}
+sorted_dict = {}
+for index, user in enumerate(users):
+    character_dict[user] = index
+print(character_dict) 
+
+for index, user in enumerate(users):
+    revised_dict[index] = user
+print(revised_dict) 
+
+sorted_users = sorted(users)
+
+for index, user in enumerate(sorted_users):
+    sorted_dict[user] = index
+print(sorted_dict)

@@ -1,5 +1,6 @@
 # Exercise 1
 import math
+import string
 
 C=50
 H=30
@@ -11,7 +12,8 @@ for D in nums:
   print(Q)
 
 # Exercise 2
-list_of_ints = [3, 47, 99, -80, 22, 97, 54, -23, 5, 7] 
+list_of_ints = [3, 47, 99, -80, 22, 97, 54, -23, 5, 7]
+
 print(list_of_ints)
 print(sorted(list_of_ints))
 print(sum(list_of_ints))
@@ -49,3 +51,47 @@ print(len(unduped))
 
 avg = sum(list_of_ints) / len(list_of_ints)
 print(avg)
+
+minimum = min(list_of_ints)
+maximum = max(list_of_ints)
+
+
+# Exercise 4
+paragraph = 'Coding creates a set of instructions for computers to follow. These instructions determine what actions a computer can and cannot take. Coding allows programmers to build programs, such as websites and apps. Computer programmers can also tell computers how to process data in better, faster ways.'
+
+total_char = len(paragraph)
+print(total_char)
+
+number_of_sentences = paragraph.count('.')
+print(number_of_sentences)
+
+
+def count_words():
+  word_counter = 0
+  for word in paragraph.split():
+    word_counter +=1
+  print(word_counter)
+count_words()
+
+def unique_words():
+  og_str = []
+  for word in paragraph.split():
+    clean_word = word.strip(string.punctuation).lower()
+    if clean_word in og_str:
+      continue
+    else:
+      og_str.append(clean_word)
+  print(len(og_str))
+unique_words()
+
+# Exercise 4
+def word_frequency(input: str):
+  counts = {} # word as key. Count as val
+  cleaned_input = input.lower().replace("?", "").replace(",", "").replace(".", "").split()
+  for word in cleaned_input:
+    if word in counts:
+      counts[word] += 1
+    else:
+      counts[word] = 1
+  print(counts)
+word_frequency('New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3.')

@@ -1,4 +1,3 @@
-"""
 # Exercise #1
 birthdays = {
     "John": "2020/10/03",
@@ -49,7 +48,7 @@ items = {
 for item, price, stock in items.items():
     print(f"Item: {item}, Price: {price}, stock: {stock}")
 
-"""
+
 items = {
     "banana": {"price": 4 , "stock":10},
     "apple": {"price": 2, "stock":5},

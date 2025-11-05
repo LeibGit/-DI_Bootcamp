@@ -36,3 +36,45 @@ def student_report():
     avg_grade =  sum(student_averages.values()) / len(student_averages.keys())
     print(avg_grade)
 student_report()
+
+# Exercise 2
+sales_data = [
+    {"customer_id": 1, "product": "Smartphone", "price": 600, "quantity": 1, "date": "2023-04-03"},
+    {"customer_id": 2, "product": "Laptop", "price": 1200, "quantity": 1, "date": "2023-04-04"},
+    {"customer_id": 1, "product": "Laptop", "price": 1000, "quantity": 1, "date": "2023-04-05"},
+    {"customer_id": 2, "product": "Smartphone", "price": 500, "quantity": 2, "date": "2023-04-06"},
+    {"customer_id": 3, "product": "Headphones", "price": 150, "quantity": 4, "date": "2023-04-07"},
+    {"customer_id": 3, "product": "Smartphone", "price": 550, "quantity": 1, "date": "2023-04-08"},
+    {"customer_id": 1, "product": "Headphones", "price": 100, "quantity": 2, "date": "2023-04-09"},
+]
+
+def sales_calculation():
+    total_sales = {}
+    for sales in sales_data:
+        product = sales["product"]
+        rev = sales["price"] * sales["quantity"]
+
+        if product in total_sales:
+            total_sales[product] += rev
+        else:
+            total_sales[product] = rev
+    print("\n total sales:")
+    for p, t in total_sales.items():
+        print(f"Product: {p}, Total Rev: {t}")
+sales_calculation()
+
+def customer_spending_profile():
+    customer_spend = {}
+    for sale in sales_data:
+        customer_id = sale["customer_id"]
+        spend = sale["price"] * sale["quantity"]
+
+        if customer_id in customer_spend:
+            customer_spend[customer_id] += spend
+        else:
+            customer_spend[customer_id] = spend
+    print("\nTotal spending by customer:")
+    for customer, total in customer_spend.items():
+        print(f"Customer {customer}: ${total}")
+customer_spending_profile()
+

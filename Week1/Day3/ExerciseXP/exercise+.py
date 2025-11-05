@@ -78,3 +78,17 @@ def customer_spending_profile():
         print(f"Customer {customer}: ${total}")
 customer_spending_profile()
 
+def sales_data_enhancement():
+    for sale in sales_data:
+        sale["total_price"] = sale["quantity"] * sale["price"]
+    print(sales_data)  
+sales_data_enhancement()
+
+def high_value_price():
+    all_transactions = []
+    for sale in sales_data:
+        sale["total_price"] = sale["price"] * sale["quantity"]
+        if sale["total_price"] > 500:
+            all_transactions.append(sale["total_price"]) 
+    print(sorted(all_transactions, reverse=True))
+high_value_price()

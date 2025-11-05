@@ -92,3 +92,16 @@ def high_value_price():
             all_transactions.append(sale["total_price"]) 
     print(sorted(all_transactions, reverse=True))
 high_value_price()
+ 
+def customer_loyalty_identification():
+    order_count = {}
+    for user in sales_data:
+        user_id = user["customer_id"]
+        order = user["quantity"] 
+        if order > 1:
+            order_count[user_id] = order
+        else:
+            continue
+    for k, v in order_count.items():
+        print(f"\n{k} is loyal with a total of {v} orders!")
+customer_loyalty_identification()

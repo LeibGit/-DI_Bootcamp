@@ -105,4 +105,3 @@ def customer_loyalty_identification():
     for k, v in order_count.items():
         print(f"\n{k} is loyal with a total of {v} orders!")
 customer_loyalty_identification()
-

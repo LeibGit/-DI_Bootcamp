@@ -11,7 +11,8 @@ def show_menu(menu_dict):
         if not menu_dict:
             print("Menu is empty") 
         else:
-            print(f"{key} - {value}₪")
+            for key, value in menu_dict.items():
+                print(f"{key.title()} - {value}₪")
 
 
 def add_item(menu_dict):
@@ -78,3 +79,4 @@ def run_coffee_shop():
 
 if __name__=='__main__':
     run_coffee_shop()
+

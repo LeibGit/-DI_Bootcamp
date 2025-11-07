@@ -27,7 +27,7 @@ dob_prompt = input("Enter date of birth in yyyy/mm/dd format: ")
 
 result =  can_retire(gender_prompt, dob_prompt)
 print(result)
-"""
+
 # Exercise 2
 def sum_function(X: int):
     str_x = str(X)
@@ -41,3 +41,27 @@ def sum_function(X: int):
         total_sum += new_x
     print(total_sum)
 sum_function(3)
+"""
+
+# Exercise 3
+from random import randint as r
+
+def throw_dice():
+    roll = r(1, 6)
+    return roll
+throw_dice()
+
+def throw_until_doubles():
+    count = 0
+    while True:
+        dice_1 = throw_dice()
+        dice_2 = throw_dice()
+        if dice_1 == dice_2:
+            print(f"count {count}: {dice_1}: {dice_2}")
+            print(f"it took {count} chances to double roll.")
+            return False
+        else:
+            count += 1
+            print(f"count {count}: {dice_1}: {dice_2}")
+res = throw_until_doubles()
+print(res)

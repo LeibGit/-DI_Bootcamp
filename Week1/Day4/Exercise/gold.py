@@ -1,3 +1,4 @@
+"""
 current_year = 2025
 current_month = 11
 
@@ -26,3 +27,17 @@ dob_prompt = input("Enter date of birth in yyyy/mm/dd format: ")
 
 result =  can_retire(gender_prompt, dob_prompt)
 print(result)
+"""
+# Exercise 2
+def sum_function(X: int):
+    str_x = str(X)
+    str_x_2 = str(X) + str(X)
+    str_x_3 = str(X) + str(X) + str(X)
+    str_x_4 = str(X) + str(X) + str(X) + str(X)
+    lst_of_str_x = [str_x, str_x_2, str_x_3, str_x_4]
+    total_sum = 0
+    for x in lst_of_str_x:
+        new_x = int(x)
+        total_sum += new_x
+    print(total_sum)
+sum_function(3)

@@ -7,8 +7,25 @@ sM#
 $a 
 #t%''' 
 
-grid = [list(MATRIX_STR[i:i+3]) for i in range(0, len(MATRIX_STR), 3)] 
+# initialize a new list
+grid = []
 
+temp_str = ''
+# split each line and save it as its own variable in a list
+array = MATRIX_STR.splitlines()
+array.remove('')
+for row in array:
+    grid.append(list(row))
+print(grid)
 for row in grid:
-    for i in row:       
-        print(row[0], row[1])
+    if row[0].isalpha():
+        temp_str += row[0]
+    print(temp_str)
+for row in grid:
+    if row[1].isalpha():
+        temp_str += row[1]
+    print(temp_str)
+for row in grid:
+    if row[2].isalpha():
+        temp_str += row[2]
+    print(temp_str)

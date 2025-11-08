@@ -20,7 +20,7 @@ def play_game():
         while True:
             get_move = input("Enter which position you want to move in this format 'row column': ")
             row, column = map(int, get_move.split())
-            if row <= 3 and row >= 0 and column <= 3 and column >= 0:
+            if row <= 3 and row >= 1 and column <= 3 and column >= 1:
                 if grid[row-1][column-1] == ' ':
                     grid[row-1][column-1] = player
                     current_player = player_two if current_player == player_one else player_one
@@ -48,5 +48,8 @@ def play_game():
         display_board()
         player_move(grid, current_player)
         if check_winner(grid, player_one) or check_winner(grid, player_two):
+            break
+        if all(cell != ' ' for row in grid for cell in row):
+            print("It's a tie.")
             break
 play_game()

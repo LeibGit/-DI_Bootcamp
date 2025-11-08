@@ -6,6 +6,7 @@ i ?
 sM# 
 $a 
 #t%''' 
+"""
 
 # initialize a new list
 grid = []
@@ -28,4 +29,23 @@ for row in grid:
 for row in grid:
     if row[2].isalpha():
         temp_str += row[2]
-    print(temp_str)
+    print(temp_str)  
+"""
+
+# initialize a new list
+grid = []
+decoded = ''
+array = MATRIX_STR.splitlines()
+array.remove('')
+for row in array:
+    grid.append(list(row))
+
+rows = len(grid)
+cols = len(grid[0]) # assuming all rows are equal length
+
+for col in range(cols):
+    for row in range(rows):
+        char = grid[row][col]
+        if char.isalpha():
+            decoded += char
+print(decoded)

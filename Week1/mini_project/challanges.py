@@ -131,3 +131,41 @@ def weird_print(lst: list):
         if value % 2 == 0:
             print(f"{index}: {value}")
 weird_print([1,2,2,3,4,5])
+
+def is_prime(num: int):
+    list_of_fact = []
+    numbers = list(range(1, num + 1))
+    if num <= 1:
+        print("not prime.")
+        return
+
+    for n in numbers:
+        if num % n == 0:
+            list_of_fact.append(n)
+    if list_of_fact == [1, num]:
+        print("Prime.")
+    else:
+        print("not prime.")
+is_prime(12)
+
+def type_count(**kwargs):
+    bool_count = 0
+    int_count = 0
+    float_count = 0
+    for k in kwargs.values():
+        k_type = type(k)
+        if k_type == bool:
+            bool_count += 1
+        elif k_type == int:
+            int_count += 1
+        elif float_count == float:
+            float_count += 1
+    print(f"bool: {bool_count}. int: {int_count}. float: {float_count}")
+type_count(a=1,b='string',c=1.0,d=True,e=False)
+
+def password_format(text: str):
+    encoded = ''
+    for char in text:
+        encoded += ' '
+    print(encoded.replace(' ', '*'))
+password_format('mypassword')

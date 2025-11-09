@@ -46,3 +46,15 @@ Dog.jump(davids_dog)
 Dog.jump(sarahs_dog)
 
 Dog.compare_sizes(dog_1=davids_dog, dog_2=sarahs_dog)
+
+class Song():
+    def __init__(self, lyrics: list):
+        self.lyrics = lyrics
+    
+    def sing_song(self):
+        for i in self.lyrics:
+            print(i)
+
+stairway = Song(["There’s a lady who's sure", "all that glitters is gold", "and she’s buying a stairway to heaven"])
+
+Song.sing_song(stairway)

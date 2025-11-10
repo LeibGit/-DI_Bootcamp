@@ -58,3 +58,53 @@ class Song():
 stairway = Song(["There’s a lady who's sure", "all that glitters is gold", "and she’s buying a stairway to heaven"])
 
 Song.sing_song(stairway)
+
+class Zoo():
+    def __init__(self, zoo_name, animals: list):
+        self.zoo_name = zoo_name
+        self.animals = animals
+
+    def add_animal(self, new_animal):
+        if new_animal in self.animals:
+            print("This animal is already in your zoo.")
+        else:
+            self.animals.append(new_animal)
+
+    def get_animals(self):
+        for i in self.animals:
+            print(i)
+
+    def sell_animal(self, animal_to_sell):
+        if animal_to_sell in self.animals:
+            self.animals.remove(animal_to_sell)
+        else:
+            print("this animal is not in your zoo.")
+
+    def sort_animals(self):
+        grouped = {}
+        for animal in self.animals:
+            if animal[0] not in grouped.keys():
+                first_letter = animal[0]
+                grouped[first_letter] = []
+            # appending animals with that key letter
+            grouped[first_letter].append(animal)
+        print(sorted(grouped.items()))
+        self.groups = sorted(grouped.items())
+        return sorted(grouped.items())
+        
+    def get_groups(self):
+        for key, value in self.groups:
+            print(f"{key}: {value}")
+            
+# Step 2: Create a Zoo instance
+brooklyn_safari = Zoo("Brooklyn Safari", [])
+
+# Step 3: Use the Zoo methods
+brooklyn_safari.add_animal("Giraffe")
+brooklyn_safari.add_animal("Bear")
+brooklyn_safari.add_animal("Baboon")
+brooklyn_safari.get_animals()
+brooklyn_safari.sell_animal("Bear")
+brooklyn_safari.get_animals()
+brooklyn_safari.sort_animals()
+brooklyn_safari.get_groups()

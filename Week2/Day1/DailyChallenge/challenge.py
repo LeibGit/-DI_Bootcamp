@@ -5,10 +5,10 @@ class Farm():
 
     def add_animal(self, animal_type, count=1):
         for animal, c in self.animals.items():
-            if animal in self.animals.keys():
-                self.animals[animal] = c + count
+            if animal_type in self.animals.keys():
+                self.animals[animal_type] = c + count
             else:
-                self.animals[animal] = count
+                self.animals[animal_type] = count
         print(self.animals)
 
     def get_info(self):

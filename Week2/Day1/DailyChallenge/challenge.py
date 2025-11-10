@@ -3,12 +3,12 @@ class Farm():
         self.name = name
         self.animals = animals
 
-    def add_animal(self, animal_type, count=1):
-        for animal, c in self.animals.items():
-            if animal_type in self.animals.keys():
-                self.animals[animal_type] = c + count
+    def add_animal(self, **kwargs):
+        for animal, count in kwargs.items():
+            if animal in self.animals:
+               self.animals[animal] += count
             else:
-                self.animals[animal_type] = count
+                self.animals[animal] = count
         print(self.animals)
 
     def get_info(self):
@@ -17,6 +17,19 @@ class Farm():
             print(f"{animal}: {count}")
         print("E-I-E-I-O")
 
+    def get_animal_type(self):
+        animal_types = []
+        for key in self.animals.keys():
+            animal_types.append(key)
+        print(sorted(animal_types))
+        return animal_types
+
+    def get_short_info(self):
+        for i in self.get_animal_type():
+            print(f"McDonald’s farm has {i}'s")
+    
 some_farm = Farm("Some Farm", {'cow': 1, 'pig':3, 'horse': 2})
-some_farm.add_animal("cow", 5)
+some_farm.add_animal(goose=4, Monkey=1, cow=2)
 some_farm.get_info() 
+some_farm.get_animal_type() 
+some_farm.get_short_info() 

@@ -74,6 +74,16 @@ class Dog():
         
 dog1 = Dog("Joe", 12, 120)
 dog2 = Dog("Milly", 14, 100)
+dog3 = Dog("Rex", 4, 16)
+
 dog1.bark()
 dog1.run_speed()
 dog1.fighting(dog2)
+
+dog2.bark()
+dog2.run_speed()
+dog2.fighting(dog3)
+
+dog3.bark()
+dog3.run_speed()
+dog3.fighting(dog1)

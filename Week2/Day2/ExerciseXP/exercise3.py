@@ -38,3 +38,25 @@ dog1.do_a_trick()
 dog2.train()
 dog2.play(dog1, dog3)
 dog2.do_a_trick()
+
+# Exercise 4
+
+class Person():
+    def __init__(self, first_name, age, last_name=''):
+        self.first_name = first_name
+        self.age = age
+    
+    def is_18(self):
+        if self.age >= 18:
+            print(f"{self.first_name} is 18 or over.")
+            return True
+        else:
+            return False
+    
+class Family():
+    def __init__(self, last_name, members=[]):
+        self.last_name = last_name
+
+    def born(self, first_name, age):
+            person = {first_name = age}
+            self.members.append(person)

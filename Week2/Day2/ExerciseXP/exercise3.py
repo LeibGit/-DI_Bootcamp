@@ -45,6 +45,7 @@ class Person():
     def __init__(self, first_name, age, last_name=''):
         self.first_name = first_name
         self.age = age
+        self.last_name = last_name
     
     def is_18(self):
         if self.age >= 18:
@@ -54,9 +55,29 @@ class Person():
             return False
     
 class Family():
-    def __init__(self, last_name, members=[]):
+    def __init__(self, last_name, members=None):
         self.last_name = last_name
+        self.members = []
 
     def born(self, first_name, age):
-            person = {first_name = age}
+            person = Person(first_name, age, self.last_name)
             self.members.append(person)
+            print(f"{first_name} was born into the {self.last_name} family.")
+
+    def check_majority(self, first_name):
+        for member in self.members:
+            if member.first_name == first_name:
+                if member.is_18() == True:
+                    print("You are over 18, your parents Jane and John accept that you will go out with your friends")
+                else:
+                    print("Sorry, you are not allowed to go out with your friends.")
+                 
+    def family_presentation(self):
+        print(f"{self.last_name}")
+        for member in self.members:
+            print(f"{member.first_name} is {member.age} years old.")
+
+person1 = Family("Roth")
+person1.born("leib", 21)
+person1.check_majority("leib")
+person1.family_presentation()

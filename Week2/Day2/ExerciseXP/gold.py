@@ -20,6 +20,19 @@ class BankAccount:
         
     def __str__(self):
         return f" Balance: {self.balance}"
+
+class MinimumBalanceAccount(BankAccount):
+    def __init__(self, balance, minimum_balance=0):
+        super().__init__(balance)
+        self.minimum_balance = minimum_balance
+
+    def withdraw(self, number: int):
+        if self.balance < self.minimum_balance:
+            raise ValueError("Balance must be above minimum balance.")
+        else:
+            return super().withdraw(number)
+    
+
     
 if __name__=='__main__':
 
@@ -27,3 +40,8 @@ if __name__=='__main__':
     print(joe_account.deposit(600))
     print(joe_account.withdraw(300))
     print(joe_account.balance)
+
+    james_account = MinimumBalanceAccount(50000, 10000)
+    print(james_account.deposit(500))
+    print(james_account.withdraw(1000))
+    print(james_account.balance)

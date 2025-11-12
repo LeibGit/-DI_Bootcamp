@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, random
 
 class Gene():
     def __init__(self, gene=None):
@@ -36,10 +36,32 @@ class DNA(Chromosome):
             self.dna.append(val)
             count += 1
         return self.dna
+    """
+        used to check if DNA was returning the correct amt of values
+
+        def checker(self):
+        count = 0
+        for chromo in self.dna:
+            count += 1
+        return count
+    """
+
+class Organism(DNA):
+    def __init__(self, values=[], dna=[], environment=0.1):
+        super().__init__(values, dna)
+        self.environment = environment
+
+    def mutate(self):
+        for i, chromo in enumerate(self.dna):
+            for j, gene in enumerate(chromo):
+                if random() <= self.environment:
+                    self.dna[i][j] = 1
+        return self.dna
 
 if __name__=='__main__':
     # put test cases here
-    test = DNA()
+    test = Organism()
     print(test.generate_gene())
     print(test.generate_chromosome())
-    print(test.generate_dna())
+    test.generate_dna()
+    print(test.mutate())

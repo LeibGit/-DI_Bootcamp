@@ -52,12 +52,15 @@ class Organism(DNA):
         self.environment = environment
 
     def mutate(self):
-        for i, chromo in enumerate(self.dna):
-            for j, gene in enumerate(chromo):
-                if random() <= self.environment:
-                    self.dna[i][j] = 1
-        return self.dna
-
+        generations = 0
+        while not all(all(gene == 1 for gene in chromo) for chromo in self.dna) == True:
+            for i, chromo in enumerate(self.dna):
+                for j, gene in enumerate(chromo):
+                    if random() <= self.environment:
+                        self.dna[i][j] = 1
+            generations += 1
+        return generations
+    
 if __name__=='__main__':
     # put test cases here
     test = Organism()

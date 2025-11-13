@@ -2,6 +2,9 @@
 from datetime import date, timedelta
 import holidays
 import re
+import random 
+import string
+"""
 def today():    
     us_holidays = holidays.US(years=range(2025, 2026))
     todays_date = date.today()
@@ -46,9 +49,31 @@ if re.match(pattern, full_name):
 else:
     print(f"{full_name} is not valid.")
 
+"""
 # Exercise 5
+def generate_password():
+    random_chars = string.digits + string.ascii_lowercase
+    new_password = []
+    string_conversion = ""
+    flag = True
+    while flag:
+        defined_range = int(input("Enter a number between 6 and 30: "))
+        if defined_range > 30 or defined_range < 6:
+            loop_active = False
+        else:
+            for i in range(0, defined_range):
+                ran = random.choices(random_chars)
+                new_password += ran
+            for i in new_password:
+                string_conversion += i
+            flag = False
+    return string_conversion
+        
 
 if __name__=="__main__":
+    """
     print(today())
     print(jupiter_age(1000000000))
     print(numbers)
+    """
+    print(generate_password())

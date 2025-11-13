@@ -4,7 +4,7 @@ import holidays
 import re
 import random 
 import string
-"""
+
 def today():    
     us_holidays = holidays.US(years=range(2025, 2026))
     todays_date = date.today()
@@ -49,7 +49,6 @@ if re.match(pattern, full_name):
 else:
     print(f"{full_name} is not valid.")
 
-"""
 # Exercise 5
 def generate_password():
     random_chars = string.digits + string.ascii_lowercase
@@ -71,9 +70,7 @@ def generate_password():
         
 
 if __name__=="__main__":
-    """
     print(today())
     print(jupiter_age(1000000000))
     print(numbers)
-    """
     print(generate_password())

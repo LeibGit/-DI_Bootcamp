@@ -36,6 +36,18 @@ def jupiter_age(age):
 txt = 'k5k3q2g5z6x9bn'
 numbers = re.findall('\d+', txt)
 
+# Exercise 4
+full_name = input("Enter your full name: ")
+
+pattern = r"^[A-Z][a-z]+ [a-z]+$"
+
+if re.match(pattern, full_name):
+    print(f"{full_name} is valid")
+else:
+    print(f"{full_name} is not valid.")
+
+# Exercise 5
+
 if __name__=="__main__":
     print(today())
     print(jupiter_age(1000000000))

@@ -1,7 +1,7 @@
 # Exercise 1
 from datetime import date, timedelta
 import holidays
-
+import re
 def today():    
     us_holidays = holidays.US(years=range(2025, 2026))
     todays_date = date.today()
@@ -32,6 +32,11 @@ def jupiter_age(age):
     f"Neptune: {neptune}"
 )
 
+# Exercise 3
+txt = 'k5k3q2g5z6x9bn'
+numbers = re.findall('\d+', txt)
+
 if __name__=="__main__":
     print(today())
     print(jupiter_age(1000000000))
+    print(numbers)

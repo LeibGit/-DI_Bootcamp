@@ -28,5 +28,27 @@ def get_random_sentence(sentence_length):
         count += 1
     return sentence.lower()
 
+
+import json
+
+sampleJson = """{ 
+   "company":{ 
+      "employee":{ 
+         "name":"emma",
+         "payable":{ 
+            "salary":7000,
+            "bonus":800
+         }
+      }
+   }
+}"""
+
+data = json.loads(sampleJson)
+
+data["company"]["employee"]["birth_date"] = "YYYY-MM-DD"
+modified_json = json.dumps(data, indent=4)
+print(modified_json)
+
 if __name__=="__main__":
     print(main())
+    print(data["company"]["employee"]["payable"]["salary"])

@@ -23,6 +23,26 @@
         {
             "name": "Cherries",
             "price": 20
+        },
+        {
+            "name": "salad",
+            "price": 76
+        },
+        {
+            "name": "energy drink",
+            "price": 30
+        },
+        {
+            "name": "shwarma",
+            "price": 2
+        },
+        {
+            "name": "78",
+            "price": 98
+        },
+        {
+            "name": "87",
+            "price": 4
         }
     ]
 }

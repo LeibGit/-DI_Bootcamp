@@ -7,6 +7,8 @@ class MenuManager():
            restruant_menu = json.load(file) 
         self.menu = restruant_menu
 
+    def view_menu(self):
+        return self.menu
     def add_item(self, name, price):  
         item_to_add = {
             'name': name,

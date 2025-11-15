@@ -46,8 +46,9 @@ sampleJson = """{
 data = json.loads(sampleJson)
 
 data["company"]["employee"]["birth_date"] = "YYYY-MM-DD"
-modified_json = json.dumps(data, indent=4)
-print(modified_json)
+
+with open('output.json', 'w') as file:
+    json.dump(data, file, indent=4)
 
 if __name__=="__main__":
     print(main())

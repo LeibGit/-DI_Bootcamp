@@ -51,6 +51,7 @@ class Game():
 
     def create_players(self):
         get_player_amt = int(input("Enter the amount of players: "))
+
         for i in range(1, get_player_amt + 1):
             get_name = input("Enter character name: ")
             get_age = input("Enter the player age: ")

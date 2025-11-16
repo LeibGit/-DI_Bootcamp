@@ -10,30 +10,62 @@
 """
 import random
 import json
-import requests
+
+def define_attributes():
+    count = 0
+    dice_values = []
+    while count < 4: 
+        dice_values.append(random.choice([1, 2, 3, 4, 5, 6]))
+        count += 1
+    min_val = min(dice_values)
+    dice_values.remove(min_val)
+    sum_val = sum(dice_values)
+    return sum_val
 
 class Character():
-    def __init__(self, char=None, strength=0, dexterity=0, constitution=0, intelligence=0, wisdom=0, charisma=0):
-        self.char = char
-        self.strength = strength
-        self.dexterity = dexterity
-        self.constitution = constitution
-        self.intelligence = intelligence
-        self.wisdom = wisdom
-        self.charisma = charisma
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.strength = define_attributes()
+        self.dexterity = define_attributes()
+        self.constitution = define_attributes()
+        self.intelligence = define_attributes()
+        self.wisdom = define_attributes()
+        self.charisma = define_attributes()
+    
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "age": self.age,
+            "strength": self.strength,
+            "dexterity": self.dexterity,
+            "constitution": self.constitution,
+            "intelligence": self.intelligence,
+            "wisdom": self.wisdom,
+            "charisma": self.charisma,
+        }
+    
+class Game():
+    def __init__(self):
+        self.players = {}
 
-    def define_players(self):
-        num_of_players = int(input("Enter how many players are playing in ingterger format: "))
-        player_dict = {}
-        for player in range(1, num_of_players + 1):
-            get_player_name = input("What is your name: ")
-            get_player_age = input("What is your age: ")
-            player_dict[get_player_name] = get_player_age
+    def create_players(self):
+        get_player_amt = int(input("Enter the amount of players: "))
+        for i in range(1, get_player_amt + 1):
+            get_name = input("Enter character name: ")
+            get_age = input("Enter the player age: ")
+            char = Character(get_name, get_age)
+            self.players[i] = char.to_dict()
+
+    def save_to_json(self):
         with open('player.json', 'w') as file:
-            json.dump(player_dict, file, indent=4)
-        return f"All players saved successfully in json."
+            json.dump(self.players, file, indent=4)
+        print("Saved players")
 
+def main():
+    game = Game()
+    game.create_players()
+    game.save_to_json()
 
-if __name__=="__main__":
-    test = Character()
-    print(test.define_players())
+if __name__ == "__main__":
+    main()

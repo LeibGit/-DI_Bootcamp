@@ -1,7 +1,32 @@
 {
-    "James": "34",
-    "kris": "65",
-    "will": "4",
-    "bob": "9",
-    "shawn": "12"
+    "1": {
+        "name": "jim",
+        "age": 30,
+        "strength": 15,
+        "dexterity": 14,
+        "constitution": 18,
+        "intelligence": 13,
+        "wisdom": 12,
+        "charisma": 13
+    },
+    "2": {
+        "name": "kris",
+        "age": 24,
+        "strength": 15,
+        "dexterity": 14,
+        "constitution": 18,
+        "intelligence": 13,
+        "wisdom": 12,
+        "charisma": 13
+    },
+    "3": {
+        "name": "mia",
+        "age": 17,
+        "strength": 15,
+        "dexterity": 14,
+        "constitution": 18,
+        "intelligence": 13,
+        "wisdom": 12,
+        "charisma": 13
+    }
 }

@@ -10,30 +10,49 @@
 """
 import random
 import json
-import requests
 
+def define_attributes():
+    count = 0
+    dice_values = []
+    while count < 4: 
+        dice_values.append(random.choice([1, 2, 3, 4, 5, 6]))
+        count += 1
+    min_val = min(dice_values)
+    dice_values.remove(min_val)
+    sum_val = sum(dice_values)
+    return sum_val
+class Game():
+    def __init__(self):
+        pass
 class Character():
-    def __init__(self, char=None, strength=0, dexterity=0, constitution=0, intelligence=0, wisdom=0, charisma=0):
-        self.char = char
-        self.strength = strength
-        self.dexterity = dexterity
-        self.constitution = constitution
-        self.intelligence = intelligence
-        self.wisdom = wisdom
-        self.charisma = charisma
+    def __init__(self, char=None):
+        self.strength = define_attributes()
+        self.dexterity = define_attributes()
+        self.constitution = define_attributes()
+        self.intelligence = define_attributes()
+        self.wisdom = define_attributes()
+        self.charisma = define_attributes()
 
     def define_players(self):
         num_of_players = int(input("Enter how many players are playing in ingterger format: "))
         player_dict = {}
         for player in range(1, num_of_players + 1):
             get_player_name = input("What is your name: ")
-            get_player_age = input("What is your age: ")
-            player_dict[get_player_name] = get_player_age
+            get_player_age = int(input("What is your age: "))
+            player_dict[int(player)] = {
+                "name": get_player_name, 
+                "age": get_player_age, 
+                "strength": self.strength, 
+                "dexterity": self.dexterity, 
+                "constitution": self.constitution, 
+                "intelligence": self.intelligence, 
+                "wisdom": self.wisdom, 
+                "charisma": self.charisma
+            }
         with open('player.json', 'w') as file:
             json.dump(player_dict, file, indent=4)
         return f"All players saved successfully in json."
-
-
+    
 if __name__=="__main__":
     test = Character()
     print(test.define_players())

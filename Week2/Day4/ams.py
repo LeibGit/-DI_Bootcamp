@@ -50,14 +50,19 @@ class Airport():
         self.schedule_arrivals = scheduled_arrivals
         self.total_flights = total_flights
 
-    def schedule_fligh(self, destination, datetime):
-        # check what airplanes are avaliable on datetime from a specific airline
-        # for the avaliable airplane, create a new flight instance with the date, time, and origin of the plane
-        # add to schedule
-        pass
-
+    def schedule_flight(self, destination, datetime):
+        for plane in self.planes:
+            for departure in self.scheduled_departures.keys():
+                if departure in plane.next_flights.keys():
+                    if datetime in self.scheduled_departures.keys():
+                        return f"No flights avaliable today"
+                    else:
+                        new_flight = Flight(date=datetime, destination=destination, origin=plane.current_location)
+                        self.scheduled_departures[new_flight.date] = destination
+                        print(f"New flight for plane: {plane.id} is scheduled for {destination} at {datetime}")
+                        return self.scheduled_departures
+              
     def info(self, start_date, end_date):
-        # Displays all scheduled flights from this date range
         self.total_flights = []
         for arrival in self.schedule_arrivals.keys():
                 if arrival >= start_date and arrival <= end_date:
@@ -86,13 +91,13 @@ if __name__=="__main__":
     southwest = Airline("southwest")
     elal = Airline("elal")
 
-    flight_1 = Flight(date=datetime.datetime(2025, 11, 12), destination="South Africa", origin="New York")
-    flight_2 = Flight(date=datetime.datetime(2025, 11, 18), destination="Tel Aviv", origin="New York")
-    flight_3 = Flight(date=datetime.datetime(2026, 1, 17), destination="Hong Kong", origin="New York")
+    flight_1 = Flight(date=datetime.datetime(2028, 1, 1), destination="South Africa", origin="New York")
+    flight_2 = Flight(date=datetime.datetime(2028, 1, 1), destination="Tel Aviv", origin="New York")
+    flight_3 = Flight(date=datetime.datetime(2028, 1, 1), destination="Hong Kong", origin="New York")
     
-    flight_4 = Flight(date=datetime.datetime(2026, 2, 13), destination="New York", origin="Japan")
-    flight_5 = Flight(date=datetime.datetime(2028, 5, 19), destination="New York", origin="Italy")
-    flight_6 = Flight(date=datetime.datetime(2025, 11, 11), destination="New York", origin="Morocco")
+    flight_4 = Flight(date=datetime.datetime(2026, 1, 1), destination="New York", origin="Japan")
+    flight_5 = Flight(date=datetime.datetime(2028, 1, 1), destination="New York", origin="Italy")
+    flight_6 = Flight(date=datetime.datetime(2025, 1, 1), destination="New York", origin="Morocco")
 
     airplane_1 = Airplane(id="01", current_location="New York", company=delta, next_flights={flight_1.date: flight_1.destination, flight_2.date: flight_2.destination, flight_3.date: flight_3.destination})
     airplane_2 = Airplane(id="02", current_location="New York", company=southwest, next_flights={flight_4.date: flight_4.destination, flight_5.date: flight_5.destination, flight_6.date: flight_6.destination})
@@ -104,3 +109,4 @@ if __name__=="__main__":
 
     JFK = Airport(city="New York", planes=[airplane_1, airplane_2], scheduled_departures={flight_1.date: flight_1.destination, flight_2.date: flight_2.destination, flight_3.date: flight_3.destination}, scheduled_arrivals={flight_4.date: flight_4.destination, flight_5.date: flight_5.destination, flight_6.date: flight_6.destination})
     print(JFK.info(start_date=datetime.datetime(2025, 1, 1), end_date=datetime.datetime(2026, 11, 10)))
+    print(JFK.schedule_flight(destination="Mexico", datetime=datetime.datetime(2027, 1, 1)))

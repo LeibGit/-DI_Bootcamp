@@ -29,6 +29,12 @@ class Airplane():
                 return f"plane: {self.id} will be at {self.next_flights[date]} on {date}"
             else:
                 return f"No flight scheduled, plane: {self.id} will be at {self.current_location} on {date}"
+        
+    def avaliable_on_date(self, date, location):
+        if date in self.next_flights.keys():
+            return f"Plane: {self.id} can't fly on {date}, it already has a flight to {self.next_flights[date]}"
+        else:
+            return True
 
 class Flight():
     def  __init__(self, date, destination):
@@ -51,3 +57,4 @@ if __name__=="__main__":
     print(airplane_1.fly(destination="lax"))
     print(airplane_1.location_on_date(date=datetime.datetime(2025, 11, 18)))
     print(airplane_1.location_on_date(date=datetime.datetime(2027, 11, 18)))
+    print(airplane_1.avaliable_on_date(date=datetime.datetime(2026, 1, 17), location="bgr"))

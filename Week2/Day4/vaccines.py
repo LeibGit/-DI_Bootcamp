@@ -13,7 +13,15 @@ class Human():
 
     def __repr__(self):
         return self.__str__()
-    
+
+class Family(Human): 
+    def __init__(self, family=None):
+        self.family = family
+
+    def add_family_member(self, person):
+        self.family.append(person)
+        return self.family
+
 class Queue():
     def __init__(self, humans):
         self.humans = humans
@@ -53,7 +61,12 @@ class Queue():
             print("Enter people from the list") 
         finally:
             return self.humans
-
+        
+    def rearrange_queue(self):
+        for human in self.humans:
+            if human.family == human[0].family:
+                human[0].family = None
+        return self.humans
     
     def get_next(self):
         return self.humans[0]

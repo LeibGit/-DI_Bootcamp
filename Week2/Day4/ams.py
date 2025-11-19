@@ -15,13 +15,20 @@ class Airplane():
         self.next_flights = next_flights
     
     def fly(self, destination):
-        if destination in self.next_flights:
+        if destination in self.next_flights.values():
             print(f"plane: {self.id} taking off from {self.current_location}")
             self.current_location = destination
             print(f"plane: {self.id} just landed in {self.current_location}")
             return self.current_location
         else:
             return f"no flight scheduled for {destination}."
+    
+    def location_on_date(self, date):
+            if date in self.next_flights.keys():
+                self.current_location = self.next_flights[date]
+                return f"plane: {self.id} will be at {self.next_flights[date]} on {date}"
+            else:
+                return f"No flight scheduled, plane: {self.id} will be at {self.current_location} on {date}"
 
 class Flight():
     def  __init__(self, date, destination):
@@ -40,5 +47,7 @@ if __name__=="__main__":
     flight_1 = Flight(date=datetime.datetime(2025, 11, 12), destination="lax")
     flight_2 = Flight(date=datetime.datetime(2025, 11, 18), destination="lhr")
     flight_3 = Flight(date=datetime.datetime(2026, 1, 17), destination="hnd")
-    airplane_1 = Airplane("01", "jfk", "delta", next_flights=[flight_1.destination, flight_2.destination, flight_3.destination])
+    airplane_1 = Airplane("01", "jfk", "delta", next_flights={flight_1.date: flight_1.destination, flight_2.date: flight_2.destination, flight_3.date: flight_3.destination})
     print(airplane_1.fly(destination="lax"))
+    print(airplane_1.location_on_date(date=datetime.datetime(2025, 11, 18)))
+    print(airplane_1.location_on_date(date=datetime.datetime(2027, 11, 18)))

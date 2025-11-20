@@ -37,10 +37,3 @@ class AnagramChecker():
             return True
         else:
             return False
-
-
-if __name__=="__main__":
-    instance_1 = AnagramChecker()
-    print(instance_1.is_valid(word="Shakshuka"))
-    print(instance_1.get_anagrams(word="meat"))
-    print(instance_1.is_anagram(word1="shwarmeat", word2="team"))

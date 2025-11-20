@@ -21,8 +21,19 @@ class AnagramChecker():
         else:
             return "word not found"
 
+    def get_anagrams(self, word):
+        pass
+
+    def is_anagram(self, word1, word2):
+        sorted1 = sorted(word1)
+        sorted2 = sorted(word2)
+        if sorted1 == sorted2:
+            return True
+        else:
+            return False
 
 
 if __name__=="__main__":
     instance_1 = AnagramChecker()
     print(instance_1.is_valid(word="Shakshuka"))
+    print(instance_1.is_anagram(word1="shwarmeat", word2="team"))

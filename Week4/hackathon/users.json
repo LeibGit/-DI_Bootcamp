@@ -48,7 +48,8 @@
         "age": 27,
         "goal": "cardio",
         "daily_logs": [
-            {"date": "2024-04-18", "steps": 7000, "workout": "pilates"}
+            {"date": "2024-04-28", "steps": 7000, "workout": "pilates"},
+            {"date": "2024-04-20", "steps": 12000, "workout": "pilates"}
         ]
     }
 ]

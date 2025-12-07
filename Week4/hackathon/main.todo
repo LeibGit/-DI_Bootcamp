@@ -1,0 +1,45 @@
+Topic 2 : AI-Generated Fitness Tracker
+Objective:
+
+Develop a Python-based fitness tracker that generates personalized workout plans and tracks progress over time.
+This project integrates programming fundamentals, data analysis, and visualization, simulating a real-world Generative AI use case for health and wellness.
+
+Workflow:
+
+1. Create User Profiles: Simulate user data with attributes like:
+Name, Age, Fitness Goals (e.g., weight loss, strength building).
+Daily Logs (e.g., steps, calories burned, workouts completed).
+Example:
+
+{
+    "name": "Alice",
+    "age": 30,
+    "goal": "strength",
+    "daily_logs": [{"date": "2023-10-01", "steps": 5000, "workout": "Yoga"}]
+}
+
+
+2. Generate Personalized Workouts:
+Use conditionals and functions to generate daily workout plans based on:
+
+Fitness goals (e.g., strength vs. cardio).
+Past activity trends (e.g., low activity suggests lighter workouts).
+Simulate recommendations like: “Based on your activity, try a 30-min HIIT session today.”
+
+
+
+3. SciPy Application:
+Apply statistical testing to understand if there’s a significant difference in the number of calories burned across different workout types. You can use ANOVA (scipy.stats.f_oneway) to test if the calorie burn differs significantly between various workout categories (e.g., yoga, running, HIIT).
+Linear regression (scipy.stats.linregress) could be used to predict future progress based on past data, such as predicting how many steps or calories a user will burn in the next week.
+Use hypothesis testing to determine if specific workouts lead to significant changes in fitness goals (e.g., “Does strength training lead to significant weight loss?”). This could involve performing paired t-tests (scipy.stats.ttest_rel) to compare data before and after a user completes a particular workout regime.
+
+
+4. Analyze and Visualize Data:
+Weekly Progress:
+
+Use Pandas to calculate total calories burned, steps taken, or workouts completed per week.
+
+Visualizations:
+
+Line plots for steps and calories burned over time.
+Bar plots showing the frequency of workout types.

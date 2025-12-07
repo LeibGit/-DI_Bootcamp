@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Alice", 
+        "age": 30, 
+        "goal": "strength", 
+        "daily_logs": [{"date": "2023-10-01", "steps": 5000, "workout": "yoga"}]
+    }, 
+    {
+        "name": "James", 
+        "age": 25, 
+        "goal": "cardio", 
+        "daily_logs": [{"date": "2024-05-14", "steps": 10000, "workout": "run"}]
+    }, 
+    {
+        "name": "Ava",
+        "age": 31,
+        "goal": "cardio",
+        "daily_logs": [
+            {"date": "2024-04-10", "steps": 8420, "workout": "strength_training"}
+    ]
+    },
+    {
+        "name": "Leo",
+        "age": 22,
+        "goal": "cardio",
+        "daily_logs": [
+            {"date": "2024-06-01", "steps": 12055, "workout": "cycling"}
+        ]
+    },
+    {
+        "name": "Sofia",
+        "age": 28,
+        "goal": "cardio",
+        "daily_logs": [
+            {"date": "2024-03-22", "steps": 9600, "workout": "yoga"}
+        ]
+    },
+    {
+        "name": "Marcus",
+        "age": 35,
+        "goal": "cardio",
+        "daily_logs": [
+            {"date": "2024-05-03", "steps": 14500, "workout": "HIIT"}
+        ]
+    },
+    {
+        "name": "Ella",
+        "age": 27,
+        "goal": "cardio",
+        "daily_logs": [
+            {"date": "2024-04-18", "steps": 7000, "workout": "pilates"}
+        ]
+    }
+]

@@ -84,15 +84,66 @@ class WorkoutPlan():
         slope, intercept, r, p, stderr = scipy.stats.linregress(x, y)
 
         future_day = len(x) + days_into_future
-        predicted_steps = slope * future_day + intercept
-        return f"Predicted steps: {predicted_steps}. correlation coefficeint: {r}"
+        predicted_steps = slope * future_day + intercept 
+
+        if abs(r) > 0.9:
+            corr_strength = "very strong"
+        elif abs(r) > 0.7:
+            corr_strength = "strong"
+        elif abs(r) > 0.5:
+            corr_strength = "moderate"
+        elif abs(r) > 0.3:
+            corr_strength = "weak"
+        else:
+            corr_strength = "negligible"
+        direction = "increasing" if r > 0 else "decreasing"
+        return f"Predicted steps: {predicted_steps:.0f}. Correlation: {r:.3f} → {corr_strength} {direction} trend"
     
+    def check_effectiveness(self):
+        "using hypothesis testing to check effectivenes of workouts on weightloss"
+        logs = self.daily_logs
+
+        if len(logs) < 2:
+            return "Not enough data for t-test."
+
+        before_weights = [logs[i]['weight'] for i in range(len(logs)-1)]
+        after_weights  = [logs[i+1]['weight'] for i in range(len(logs)-1)]
+
+        t_stat, p_val = scipy.stats.ttest_rel(before_weights, after_weights)
+
+        if p_val < 0.01:
+            significance = "very significant"
+        elif p_val < 0.05:
+            significance = "significant"
+        elif p_val < 0.10:
+            significance = "marginally significant"
+        else:
+            significance = "not significant"
+
+        return f"t_stat: {t_stat:.3f}. p_val: {p_val:.3f} → {significance}"
+        
     def reccomendations(self):
-        """Generating workout reccomendation"""
+        """Generating workout recommendation"""
         min_minutes = 15
         max_minutes = 60
         workout_time = randint(min_minutes, max_minutes)
-        return f"{self.name} | {self.get_dates() + pd.Timedelta(days=1)}\n---------------------------\n1. walk {self.get_steps()} steps. \n2. Todays workout: {self.get_workouts()} \n3. Duration: {workout_time} minutes"
+        
+        next_workout_date = self.get_dates() + pd.Timedelta(days=1)
+        avg_steps = self.get_steps()
+        todays_workout = self.get_workouts()
+        future_steps = self.get_future_steps()
+        effectiveness = self.check_effectiveness()
+        
+        rec = (
+            f"{self.name} | Next workout: {next_workout_date.date()}\n"
+            "---------------------------\n"
+            f"1. Walk {avg_steps:.0f} steps\n"
+            f"2. Today's workout: {todays_workout}\n"
+            f"3. Duration: {workout_time} minutes\n"
+            f"4. Next week step prediction: {future_steps}\n"
+            f"5. Program effectiveness prediction: {effectiveness}\n"
+        )
+        return rec    
 
 if __name__ == "__main__":
     plans = []
@@ -105,5 +156,3 @@ if __name__ == "__main__":
         ))
     for p in plans:
         print(p.reccomendations())
-        print(p.get_cals_burned())
-        print(p.get_future_steps())

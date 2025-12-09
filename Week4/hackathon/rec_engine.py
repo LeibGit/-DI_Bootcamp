@@ -56,9 +56,7 @@ class WorkoutPlan():
             return rand_choice_flex
         else:
             rand_choice_all = choice(all_workouts)
-            return rand_choice_all
-            
-            
+            return rand_choice_all          
         
     def get_cals_burned(self):
         """Analyzing statisticall distance between calories burned between workouts"""
@@ -74,8 +72,21 @@ class WorkoutPlan():
         if len(group_lists) < 2:
             raise ValueError("Need at least 2 workout types for analysis.")
         f_stat, p_value = scipy.stats.f_oneway(*group_lists)
-        return f_stat, p_value
-        
+        return f"F_stat: {f_stat}. p_value: {p_value}"
+    
+    def get_future_steps(self, days_into_future=7):
+        """using linear regression to predict future progress"""
+        # convert dates to numeric time index
+        logs = sorted(self.daily_logs, key=lambda x: x['date'])
+        x = list(range(len(logs)))
+        y = [entry['steps'] for entry in logs]
+
+        slope, intercept, r, p, stderr = scipy.stats.linregress(x, y)
+
+        future_day = len(x) + days_into_future
+        predicted_steps = slope * future_day + intercept
+        return f"Predicted steps: {predicted_steps}. correlation coefficeint: {r}"
+    
     def reccomendations(self):
         """Generating workout reccomendation"""
         min_minutes = 15
@@ -95,3 +106,4 @@ if __name__ == "__main__":
     for p in plans:
         print(p.reccomendations())
         print(p.get_cals_burned())
+        print(p.get_future_steps())

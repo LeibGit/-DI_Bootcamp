@@ -121,6 +121,16 @@ class WorkoutPlan():
             significance = "not significant"
 
         return f"t_stat: {t_stat:.3f}. p_val: {p_val:.3f} → {significance}"
+
+    def all_time_stats(self):
+        """Get all time calories burned"""
+        calorie_count = 0
+        steps = 0
+        for log in self.daily_logs:
+            calorie_count += log['calories']
+            steps += log['steps']
+
+        return f"Total calories burned: {calorie_count}. Total steps: {steps} Total workouts completed: {len(self.daily_logs)}"
         
     def reccomendations(self):
         """Generating workout recommendation"""
@@ -133,15 +143,17 @@ class WorkoutPlan():
         todays_workout = self.get_workouts()
         future_steps = self.get_future_steps()
         effectiveness = self.check_effectiveness()
+        total_stats = self.all_time_stats()
         
         rec = (
-            f"{self.name} | Next workout: {next_workout_date.date()}\n"
+            f"{self.name} | Next workout: {next_workout_date.date()} + Snapshot\n"
             "---------------------------\n"
             f"1. Walk {avg_steps:.0f} steps\n"
             f"2. Today's workout: {todays_workout}\n"
             f"3. Duration: {workout_time} minutes\n"
             f"4. Next week step prediction: {future_steps}\n"
             f"5. Program effectiveness prediction: {effectiveness}\n"
+            f"6. Stats: {total_stats}\n"
         )
         return rec    
 
